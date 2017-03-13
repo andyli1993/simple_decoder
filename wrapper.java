@@ -9,14 +9,13 @@ import java.util.HashMap;
 public class wrapper {
 
 	static int size= 0;
-	static int size2= 0;
 	String ab1 = null;
 
 
 	public static void main(String args[]) {
 
 		// instantiate a hash map
-		HashMap library = new HashMap();
+		HashMap<Character,Character> library = new HashMap<Character,Character>() ;
 		// Put elements to the map, ideally should be stored elsewhere and imported using a secured reader.
 		library.put('a', 'n');
 		library.put('b', 'o');
@@ -40,7 +39,8 @@ public class wrapper {
 	
 		//store input
 		try {
-			input_string = br.readLine();			
+			input_string = br.readLine();	
+			
 		} catch (IOException ioe) {
 			System.out.println("please check your input");
 			System.exit(1);
@@ -49,7 +49,7 @@ public class wrapper {
 		//process data 
 		String processed =process(input_string);
 		size= processed.length();
-		size2= processed.length();
+        //convert string to separate tokens 
 		char[] ab=processed.replaceAll("\\W","").toCharArray();		
 		StringBuilder decoded_code = new StringBuilder();	
 		int counter =1;	
@@ -64,7 +64,7 @@ public class wrapper {
 	
 	//process data based on future requirements
 	public static String process(String input_string) {
-		//two assumptions toons are not trimmed, and are not all lower case.
+		//two assumptions input string are not trimmed, and are not all lower case, alphabets input only limited to m 
 		String processed=input_string.trim();
 		processed.toLowerCase();	
 		return processed;		
