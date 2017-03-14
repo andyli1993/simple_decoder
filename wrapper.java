@@ -48,6 +48,7 @@ public class wrapper {
 
 		//process data 
 		String processed =process(input_string);
+		boolean abc= true;
 		size= processed.length();
         //convert string to separate tokens 
 		char[] ab=processed.replaceAll("\\W","").toCharArray();		
@@ -55,11 +56,23 @@ public class wrapper {
 		int counter =1;	
 		//loop through and append decoded char
 		while(size>0){
+			
+			if (library.get(ab[counter-1]) == null) {
+				System.out.println("error spotted!");
+				abc=false;
+				break;
+				
+			  
+			} else {			  	
 			decoded_code.append(library.get(ab[counter-1]));
 	      	counter++;
 			size--;
 			}
+		}
+
+		if(abc!=false){
 		System.out.println("you decoded code is :" +decoded_code);
+		}
 		}
 	
 	//process data based on future requirements
